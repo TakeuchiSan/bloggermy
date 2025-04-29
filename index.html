@@ -1,138 +1,388 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>VIDEO VIRAL 2025</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <title>VIDEO VIRAL 2025 | Portal Berita Digital</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
+    :root {
+      --primary: #2563eb;
+      --secondary: #1e40af;
+      --accent: #3b82f6;
+      --text: #1f2937;
+      --light-text: #6b7280;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --footer: #111827;
+    }
+    
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: #f5f5f5;
-      color: #333;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
     }
+    
     header {
-      background: #ff4757;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
       color: white;
       text-align: center;
-      padding: 20px 10px;
+      padding: 2rem 1rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
+    
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+      font-weight: 700;
+    }
+    
     nav {
-      background: #fff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      padding: 10px 20px;
+      background: var(--card-bg);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      padding: 1rem 2rem;
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 100;
     }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .logo {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 1.2rem;
+    }
+    
     .menu-icon {
       display: none;
-      font-size: 24px;
+      font-size: 1.5rem;
       cursor: pointer;
+      color: var(--text);
     }
+    
     nav ul {
       list-style: none;
       margin: 0;
       padding: 0;
       display: flex;
-      gap: 20px;
+      gap: 2rem;
     }
+    
     nav ul li a {
       text-decoration: none;
-      color: #333;
+      color: var(--text);
+      font-weight: 500;
+      transition: color 0.3s;
+      position: relative;
+      padding: 0.5rem 0;
+    }
+    
+    nav ul li a:hover {
+      color: var(--primary);
+    }
+    
+    nav ul li a.active {
+      color: var(--primary);
       font-weight: 600;
     }
-    nav ul li a.active {
-      color: #ff4757;
+    
+    nav ul li a.active:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 3px 3px 0 0;
     }
+    
     .container {
       max-width: 1200px;
-      margin: auto;
-      padding: 20px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
     }
+    
+    .page-title {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: var(--text);
+      position: relative;
+      padding-left: 1rem;
+    }
+    
+    .page-title:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 4px;
+      background: var(--primary);
+      border-radius: 4px;
+    }
+    
     .articles-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
     }
+    
     .article-card {
-      background: #fff;
-      border-radius: 10px;
+      background: var(--card-bg);
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       display: flex;
       flex-direction: column;
     }
+    
     .article-card:hover {
       transform: translateY(-5px);
+      box-shadow: 0 10px 15px rgba(0,0,0,0.1);
     }
+    
+    .article-image-container {
+      position: relative;
+      overflow: hidden;
+      height: 180px;
+    }
+    
     .article-image {
       width: 100%;
-      height: 180px;
+      height: 100%;
       object-fit: cover;
+      transition: transform 0.5s ease;
     }
+    
+    .article-card:hover .article-image {
+      transform: scale(1.05);
+    }
+    
+    .article-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(255,255,255,0.9);
+      color: var(--primary);
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+    
     .article-content {
-      padding: 15px;
+      padding: 1.25rem;
       flex-grow: 1;
       display: flex;
       flex-direction: column;
     }
+    
     .article-category {
-      font-size: 12px;
-      color: #ff4757;
+      font-size: 0.75rem;
+      color: var(--primary);
       font-weight: 600;
-      margin-bottom: 5px;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
+    
     .article-title {
-      font-size: 18px;
-      margin: 5px 0;
+      font-size: 1.1rem;
+      margin: 0.5rem 0;
+      font-weight: 600;
+      color: var(--text);
     }
+    
     .article-excerpt {
-      font-size: 14px;
+      font-size: 0.875rem;
       flex-grow: 1;
-      margin: 10px 0;
-      color: #666;
+      margin: 0.5rem 0 1rem;
+      color: var(--light-text);
     }
+    
     .article-meta {
-      font-size: 12px;
-      color: #aaa;
-      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      font-size: 0.75rem;
+      color: var(--light-text);
+      margin-bottom: 1rem;
     }
+    
+    .article-meta i {
+      margin-right: 0.3rem;
+      font-size: 0.7rem;
+    }
+    
     .read-more {
-      background: #ff4757;
+      background: linear-gradient(to right, var(--primary), var(--accent));
       color: white;
       text-align: center;
-      padding: 8px;
-      border-radius: 5px;
+      padding: 0.6rem;
+      border-radius: 6px;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 500;
+      font-size: 0.875rem;
       display: block;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+    
+    .read-more:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
+    }
+    
     footer {
-      background: #222;
-      color: #ccc;
-      text-align: center;
-      padding: 20px 10px;
-      margin-top: 40px;
+      background: var(--footer);
+      color: #d1d5db;
+      padding: 3rem 1rem 2rem;
+      margin-top: 3rem;
     }
+    
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+    
+    .footer-logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 1rem;
+    }
+    
+    .footer-about {
+      font-size: 0.875rem;
+      line-height: 1.7;
+    }
+    
+    .footer-links h3 {
+      color: white;
+      font-size: 1.1rem;
+      margin-bottom: 1.25rem;
+      position: relative;
+    }
+    
+    .footer-links h3:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 40px;
+      height: 2px;
+      background: var(--accent);
+    }
+    
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.7rem;
+    }
+    
+    .footer-links a {
+      color: #9ca3af;
+      text-decoration: none;
+      transition: color 0.3s;
+      font-size: 0.875rem;
+    }
+    
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .social-links a {
+      color: white;
+      background: rgba(255,255,255,0.1);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+    
+    .social-links a:hover {
+      background: var(--accent);
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      margin-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+    
     .hidden {
       display: none;
     }
+    
     @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .menu-icon {
+        display: block;
+        position: absolute;
+        right: 1.5rem;
+        top: 1.2rem;
+      }
+      
       nav ul {
         flex-direction: column;
-        gap: 10px;
+        gap: 0;
+        width: 100%;
         display: none;
+        margin-top: 1rem;
       }
+      
       nav ul.show {
         display: flex;
       }
-      .menu-icon {
+      
+      nav ul li {
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+      }
+      
+      nav ul li a {
         display: block;
+        padding: 0.8rem 0;
+      }
+      
+      .page-title {
+        font-size: 1.5rem;
+      }
+      
+      .footer-container {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -142,102 +392,140 @@
 
 <header>
   <h1>VIDEO VIRAL 2025</h1>
+  <p>Portal Video Viral Terkini</p>
 </header>
 
 <nav>
-  <div class="menu-icon" onclick="toggleMenu()">☰</div>
-  <ul id="nav-links">
-    <li><a href="index.html" class="active">Beranda</a></li>
-    <li><a href="https://www.profitableratecpm.com/zwjztqiq?key=ed53ff225c2c8859fd761958738f8460" target="_blank" rel="nofollow noopener noreferrer">Kategori</a></li>
-  </ul>
+  <div class="nav-container">
+    <div class="logo">VIRAL2025</div>
+    <div class="menu-icon" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+    <ul id="nav-links">
+      <li><a href="index.html" class="active"><i class="fas fa-home"></i> Beranda</a></li>
+      <li><a href="https://www.profitableratecpm.com/zwjztqiq?key=ed53ff225c2c8859fd761958738f8460"><i class="fas fa-list"></i> Kategori</a></li>
+      <li><a href="https://www.profitableratecpm.com/zwjztqiq?key=ed53ff225c2c8859fd761958738f8460"><i class="fas fa-fire"></i> Trending</a></li>
+      <li><a href="https://www.profitableratecpm.com/zwjztqiq?key=ed53ff225c2c8859fd761958738f8460"><i class="fas fa-info-circle"></i> Tentang Kami</a></li>
+    </ul>
+  </div>
 </nav>
 
 <div class="container">
-  <h2>Video Terbaru</h2>
+  <h2 class="page-title">Video Terbaru</h2>
   <div class="articles-grid">
     
-    <!-- Semua artikel -->
     <article class="article-card">
-      <img src="https://i.pinimg.com/736x/9f/b6/c5/9fb6c56521f43e55168a58dcc8f1c88e.jpg" alt="Syakirah Viral Terbaru 2025" class="article-image">
-      <div class="article-content">
-        <span class="article-category">Viral 2025</span>
-        <h3 class="article-title">Syakirah Viral Terbaru 2025</h3>
-        <p class="article-excerpt">Syakirah Yang Dulu Pernah Viral Sekarang Muncul Lagi Video Terbarunya...</p>
-        <div class="article-meta">8 April 2025</div>
-        <a href="https://www.profitableratecpm.com/zwjztqiq?key=ed53ff225c2c8859fd761958738f8460" target="_blank" class="read-more">Lihat Selengkapnya</a>
+      <div class="article-image-container">
+        <img src="https://i.pinimg.com/170x/25/86/d5/2586d50f0e7e5f7ce3b27a8e46ac32bc.jpg" alt="Calla Pinky Mulus 2025" class="article-image">
       </div>
-    </article>
-
-    <article class="article-card">
-      <img src="https://i.pinimg.com/736x/9c/29/19/9c2919e6b3a0ba03fdb8803261bfe249.jpg" alt="Arachuu Viral" class="article-image">
-      <div class="article-content">
-        <span class="article-category">Bocil Viral 2025</span>
-        <h3 class="article-title">Arachuu Terbaru 2025</h3>
-        <p class="article-excerpt">Arachuu Yang Dulu Pernah Viral Pada Masanya Kini Kembali Muncul Dengan Video Terbarunya...</p>
-        <div class="article-meta">28 Maret 2025</div>
-        <a href="https://www.profitableratecpm.com/zwjztqiq?key=ed53ff225c2c8859fd761958738f8460" target="_blank" class="read-more">Lihat Selengkapnya</a>
-      </div>
-    </article>
-
-    <article class="article-card">
-      <img src="https://img.doodcdn.io/splash/uerx6vkwgfvhj42o.jpg" alt="Challmey Viral Terbaru 2025" class="article-image">
-      <div class="article-content">
-        <span class="article-category">Viral 2025</span>
-        <h3 class="article-title">Challmey Viral Terbaru 2025</h3>
-        <p class="article-excerpt">Link Nonton Challmey Viral Terbaru 2025 Atau Download Via MediaFire...</p>
-        <div class="article-meta">28 Maret 2025</div>
-        <a href="https://www.profitableratecpm.com/zwjztqiq?key=ed53ff225c2c8859fd761958738f8460" target="_blank" class="read-more">Lihat Selengkapnya</a>
-      </div>
-    </article>
-
-    <article class="article-card">
-      <img src="https://img.doodcdn.io/splash/3t1t5slu96sa3mcv.jpg" alt="Diandanih Viral 2025" class="article-image">
-      <div class="article-content">
-        <span class="article-category">Viral 2025</span>
-        <h3 class="article-title">Diandanih Viral Terbaru 2025</h3>
-        <p class="article-excerpt">Video Viral Terbaru Diandanih Kini Sedang Ramai Menjadi Perbincangan Hangat Karena Aksinya...</p>
-        <div class="article-meta">5 April 2025</div>
-        <a href="https://www.profitableratecpm.com/zwjztqiq?key=ed53ff225c2c8859fd761958738f8460" target="_blank" class="read-more">Lihat Selengkapnya</a>
-      </div>
-    </article>
-
-    <article class="article-card">
-      <img src="https://i.pinimg.com/736x/c3/19/79/c31979abeb73d80916aaf4163b541830.jpg" alt="Calla Pinky Mulus 2025" class="article-image">
       <div class="article-content">
         <span class="article-category">Viral 2025</span>
         <h3 class="article-title">Calla Pinky Mulus Terbaru 2025</h3>
-        <p class="article-excerpt">Link Nonton Calla Pinky Mulus Terbaru 2025...</p>
-        <div class="article-meta">1 April 2025</div>
+        <p class="article-excerpt">Update terbaru Calla Pinky dengan video viral terbarunya yang sedang banyak dicari...</p>
+        <div class="article-meta"><i class="far fa-calendar-alt"></i> 1 April 2025</div>
         <a href="https://www.profitableratecpm.com/zwjztqiq?key=ed53ff225c2c8859fd761958738f8460" target="_blank" class="read-more">Lihat Selengkapnya</a>
       </div>
     </article>
 
     <article class="article-card">
-      <img src="https://img.doodcdn.io/splash/4gq91ai640jdcv1r.jpg" alt="Chelsea pink Viral 2025" class="article-image">
+      <div class="article-image-container">
+        <img src="https://i.pinimg.com/736x/9c/29/19/9c2919e6b3a0ba03fdb8803261bfe249.jpg" alt="Arachuu Viral" class="article-image">
+      </div>
       <div class="article-content">
-        <span class="article-category">Bocil Viral 2025</span>
-        <h3 class="article-title">Chelsea Pink Viral Terbaru 2025</h3>
-        <p class="article-excerpt">Chelsea Pink Viral Sesosok Siswi Smp Yang Tengah Ramai Diperbincangkan Karena Aksinya...</p>
-        <div class="article-meta">1 April 2025</div>
+        <span class="article-category">Bocil Viral</span>
+        <h3 class="article-title">Arachuu Terbaru 2025</h3>
+        <p class="article-excerpt">Arachuu yang dulu pernah viral pada masanya kini kembali muncul dengan video terbaru yang mengejutkan...</p>
+        <div class="article-meta"><i class="far fa-calendar-alt"></i> 28 Maret 2025</div>
         <a href="https://www.profitableratecpm.com/zwjztqiq?key=ed53ff225c2c8859fd761958738f8460" target="_blank" class="read-more">Lihat Selengkapnya</a>
       </div>
     </article>
 
+    <article class="article-card">
+      <div class="article-image-container">
+        <img src="https://img.doodcdn.io/splash/uerx6vkwgfvhj42o.jpg" alt="Challmey Viral Terbaru 2025" class="article-image">
+        <span class="article-badge">HOT</span>
+      </div>
+      <div class="article-content">
+        <span class="article-category">Viral 2025</span>
+        <h3 class="article-title">Challmey Viral Terbaru 2025</h3>
+        <p class="article-excerpt">Link lengkap untuk nonton Challmey viral terbaru 2025 atau download via berbagai platform...</p>
+        <div class="article-meta"><i class="far fa-calendar-alt"></i> 28 Maret 2025</div>
+        <a href="https://www.profitableratecpm.com/zwjztqiq?key=ed53ff225c2c8859fd761958738f8460" target="_blank" class="read-more">Lihat Selengkapnya</a>
+      </div>
+    </article>
+
+    <article class="article-card">
+      <div class="article-image-container">
+        <img src="https://img.doodcdn.io/splash/3t1t5slu96sa3mcv.jpg" alt="Diandanih Viral 2025" class="article-image">
+      </div>
+      <div class="article-content">
+        <span class="article-category">Viral 2025</span>
+        <h3 class="article-title">Diandanih Viral Terbaru 2025</h3>
+        <p class="article-excerpt">Video viral terbaru Diandanih kini sedang ramai menjadi perbincangan hangat karena aksinya yang tak terduga...</p>
+        <div class="article-meta"><i class="far fa-calendar-alt"></i> 5 April 2025</div>
+        <a href="https://www.profitableratecpm.com/zwjztqiq?key=ed53ff225c2c8859fd761958738f8460" target="_blank" class="read-more">Lihat Selengkapnya</a>
+      </div>
+    </article>
+
+    <article class="article-card">
+      <div class="article-image-container">
+        <img src="https://img.doodcdn.io/splash/4gq91ai640jdcv1r.jpg" alt="Chelsea pink Viral 2025" class="article-image">
+        <span class="article-badge">TRENDING</span>
+      </div>
+      <div class="article-content">
+        <span class="article-category">Bocil Viral</span>
+        <h3 class="article-title">Chelsea Pink Viral Terbaru 2025</h3>
+        <p class="article-excerpt">Chelsea Pink viral sebagai siswi SMP yang tengah ramai diperbincangkan karena aksinya yang mengejutkan...</p>
+        <div class="article-meta"><i class="far fa-calendar-alt"></i> 1 April 2025</div>
+        <a href="https://www.profitableratecpm.com/zwjztqiq?key=ed53ff225c2c8859fd761958738f8460" target="_blank" class="read-more">Lihat Selengkapnya</a>
+      </div>
+    </article>
 
   </div>
 </div>
 
 <footer>
-  <h3>VIDEO VIRAL 2025</h3>
-  <p>&copy; 2025 Video Viral. Seluruh hak cipta dilindungi.</p>
+  <div class="footer-container">
+    <div class="footer-about">
+      <div class="footer-logo">VIDEO VIRAL 2025</div>
+      <p class="footer-about">Video viral terbaru 2025 yang selalu update</p>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+    
+    <div class="footer-links">
+      <h3>Kategori</h3>
+      <ul>
+        <li><a href="https://www.profitableratecpm.com/zwjztqiq?key=ed53ff225c2c8859fd761958738f8460">Viral Terbaru</a></li>
+        <li><a href="https://www.profitableratecpm.com/zwjztqiq?key=ed53ff225c2c8859fd761958738f8460">Bocil Viral</a></li>
+        <li><a href="https://www.profitableratecpm.com/zwjztqiq?key=ed53ff225c2c8859fd761958738f8460">Trending</a></li>
+        <li><a href="https://www.profitableratecpm.com/zwjztqiq?key=ed53ff225c2c8859fd761958738f8460">Selebriti</a></li>
+        <li><a href="https://www.profitableratecpm.com/zwjztqiq?key=ed53ff225c2c8859fd761958738f8460">Viral Link</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-links">
+      <h3>Navigasi</h3>
+      <ul>
+        <li><a href="#">Beranda</a></li>
+        <li><a href="#">Tentang Kami</a></li>
+        <li><a href="#">Kebijakan Privasi</a></li>
+        <li><a href="#">Syarat & Ketentuan</a></li>
+        <li><a href="#">Kontak</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="copyright">
+    <p>&copy; 2025 VIDEO VIRAL 2025. Seluruh hak cipta dilindungi.</p>
+  </div>
 </footer>
-
-<!-- IKLAN -->
 <script type='text/javascript' src='//pl26484182.profitableratecpm.com/30/1f/f7/301ff7b36ba49bca0f04e1c1d95586de.js'></script>
 <script type='text/javascript' src='//pl26484230.profitableratecpm.com/0e/77/7f/0e777f32164a6f3ad451ff633f587717.js'></script>
 <script async="async" data-cfasync="false" src="//pl26491924.profitableratecpm.com/ab779d95708bfd56edff3ba2acfdd914/invoke.js"></script>
 <div id="container-ab779d95708bfd56edff3ba2acfdd914"></div>
-
 <script>
   function toggleMenu() {
     const nav = document.getElementById('nav-links');
